@@ -1,7 +1,7 @@
 // lib/screens/first_screen.dart
 import 'package:flutter/material.dart';
 import 'package:journimal_client/screen/register_date.dart';
-import 'package:journimal_client/screen/signin.dart';
+import 'package:journimal_client/screen/signup.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 40,
+              height: 60,
             ),
             SizedBox(
               width: 319,
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const SigninScreen()),
+                        builder: (context) => const SignupScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 225,
+              height: 100,
             ),
             TextButton(
               onPressed: () {

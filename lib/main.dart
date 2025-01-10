@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:journimal_client/screen/login.dart';
-import 'package:journimal_client/screen/signin.dart';
+import 'package:journimal_client/screen/signup.dart';
 
 void main() {
   runApp(const MyApp());

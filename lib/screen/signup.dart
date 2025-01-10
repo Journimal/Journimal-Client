@@ -1,8 +1,8 @@
 // lib/screens/second_screen.dart
 import 'package:flutter/material.dart';
 
-class SigninScreen extends StatelessWidget {
-  const SigninScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

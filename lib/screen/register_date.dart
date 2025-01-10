@@ -11,7 +11,14 @@ class RegisterDateScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('this is register')],
+          children: [
+            Text(
+              'Select your travel date',
+              style: TextStyle(
+                fontSize: 28,
+              ),
+            ),
+          ],
         ),
       ),
     );
