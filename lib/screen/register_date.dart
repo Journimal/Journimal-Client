@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:journimal_client/screen/register_date.dart';
 
 class RegisterDateScreen extends StatelessWidget {
   const RegisterDateScreen({super.key});

@@ -1,7 +1,6 @@
 // lib/screens/first_screen.dart
 import 'package:flutter/material.dart';
 import 'package:journimal_client/screen/register_date.dart';
-import 'package:journimal_client/screen/signup.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -9,7 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff022169),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0),
         child: AppBar(),
@@ -21,7 +20,8 @@ class LoginScreen extends StatelessWidget {
             Text(
               'LOGO',
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 60,
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -32,16 +32,57 @@ class LoginScreen extends StatelessWidget {
               height: 62,
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Enter Email',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  hintText: 'Enter your Email address',
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
             ),
             SizedBox(
+              height: 16,
+            ),
+            SizedBox(
               width: 319,
               height: 62,
               child: TextField(
-                decoration: InputDecoration(labelText: 'Enter password'),
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  hintText: 'Enter your Password',
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
                 keyboardType: TextInputType.text,
                 obscureText: true, // 비밀번호 안보이게
               ),
@@ -57,32 +98,20 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const SignupScreen()),
+                        builder: (context) => const RegisterDateScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff666666),
+                  backgroundColor: Colors.white,
                 ),
                 child: Text(
-                  'Log in',
+                  'Log In',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xff022169),
                     fontSize: 20,
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 100,
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterDateScreen()),
-                );
-              },
-              child: Text('Sign up here!'),
             ),
           ],
         ),

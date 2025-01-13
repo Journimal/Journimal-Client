@@ -62,32 +62,7 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 319,
-              height: 62,
-              child: TextField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 1.0,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 1.0,
-                    ),
-                  ),
-                  hintText: 'Enter Email address',
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.emailAddress,
-              ),
+              height: 16,
             ),
             SizedBox(
               width: 319,
@@ -108,7 +83,38 @@ class SignupScreen extends StatelessWidget {
                       width: 1.0,
                     ),
                   ),
-                  hintText: 'Password',
+                  hintText: 'Enter your Email address',
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+              width: 319,
+              height: 62,
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  hintText: 'Enter your Password',
                   hintStyle: TextStyle(
                     color: Colors.white,
                   ),
@@ -167,7 +173,7 @@ class SignupScreen extends StatelessWidget {
                     backgroundColor: Color(0xffffffff),
                     minimumSize: const Size(48, 20),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: Text(
