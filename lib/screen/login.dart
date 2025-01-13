@@ -57,6 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: 1.0,
                         ),
                       ),
+                      hintText: 'Enter your Email address',
+                      hintStyle: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                     controller: id,
                     keyboardType: TextInputType.emailAddress,
@@ -155,7 +159,7 @@ void showSnackBar(BuildContext context, Text text) {
       ],
     ),
     backgroundColor: Color(0xffFA7A7A),
-    duration: Duration(seconds: 5),
+    duration: Duration(seconds: 3),
   );
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
