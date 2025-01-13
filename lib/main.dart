@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:journimal_client/screen/login.dart';
 import 'package:journimal_client/screen/signup.dart';
 
 void main() {
@@ -17,9 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: LoginScreen(), //원래 여기 MyHomePage 해서 바로 아래에 class를
-      // 생성했지만 지금은 외부 패키지 (파일)을 불러와서
-      // 다른 파일에서 생성한 클래스를 사용!
+      home: SignupScreen(),
     );
   }
 }
