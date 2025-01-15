@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:journimal_client/screen/signup.dart';
+import 'package:journimal_client/screen/Home_eco_buddies.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: SignupScreen(),
+      home: HomeEcoBuddiesScreen(),
     );
   }
 }

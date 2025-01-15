@@ -105,6 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
+                      // 임시 로그인
                       if (id.text == 'mei@hello.com' && pw.text == '1234') {
                         Navigator.push(
                           context,
