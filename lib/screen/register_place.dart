@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:journimal_client/screen/Home_eco_buddies.dart';
 
 class RegisterPlaceScreen extends StatelessWidget {
   const RegisterPlaceScreen({super.key});
@@ -39,7 +40,13 @@ class RegisterPlaceScreen extends StatelessWidget {
               width: 280,
               height: 45,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeEcoBuddiesScreen()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   backgroundColor: Color(0xff022169),
                 ),
