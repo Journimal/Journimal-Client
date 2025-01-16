@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:journimal_client/screen/Home_eco_buddies.dart';
+import 'package:journimal_client/screen/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Journimal',
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: HomeEcoBuddiesScreen(),
+      home: SignupScreen(),
     );
   }
 }

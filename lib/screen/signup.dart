@@ -7,7 +7,7 @@ class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
 
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController idController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   void showSnackBar(BuildContext context, String message,
@@ -35,7 +35,7 @@ class SignupScreen extends StatelessWidget {
 
   Future<void> validateAndSignup(BuildContext context) async {
     if (nameController.text.isEmpty ||
-        emailController.text.isEmpty ||
+        idController.text.isEmpty ||
         passwordController.text.isEmpty) {
       showSnackBar(context, 'Please enter all fields.');
       return;
@@ -43,7 +43,7 @@ class SignupScreen extends StatelessWidget {
 
     const String apiUrl = "http://10.0.2.2:3000/auth/sign-up"; // 서버 IP 주소로 수정
     final Map<String, String> data = {
-      "user_id": emailController.text,
+      "user_id": idController.text,
       "user_pw": passwordController.text,
       "user_name": nameController.text,
     };
@@ -104,8 +104,7 @@ class SignupScreen extends StatelessWidget {
               SizedBox(height: 20),
               buildTextField(nameController, 'Enter your Name'),
               SizedBox(height: 16),
-              buildTextField(emailController, 'Enter your Email address',
-                  keyboardType: TextInputType.emailAddress),
+              buildTextField(idController, 'Enter your ID'),
               SizedBox(height: 16),
               buildTextField(passwordController, 'Enter your Password',
                   obscureText: true),
@@ -122,6 +121,47 @@ class SignupScreen extends StatelessWidget {
                     style: TextStyle(color: Color(0xff022169), fontSize: 20),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffffffff),
+                      minimumSize: const Size(48, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: Text(
+                      'Log in',
+                      style: TextStyle(
+                        color: Color(0xff022169),
+                        fontSize: 10,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
