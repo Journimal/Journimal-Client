@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'dart:convert';
+import 'dart:developer';
 import 'package:journimal_client/screen/register_date.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -30,12 +31,11 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'LOGO',
-              style: TextStyle(
-                fontSize: 60,
-                color: Colors.white,
-              ),
+            Image(
+              image: AssetImage('assets/images/journimal_logo.png'),
+              width: 260.83,
+              height: 35.23,
+              fit: BoxFit.cover,
             ),
             const SizedBox(height: 60),
             SizedBox(
@@ -44,6 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextField(
                 style: const TextStyle(
                   color: Colors.white,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w400,
                 ),
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -62,6 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   hintText: 'Enter your ID',
                   hintStyle: const TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),
                 ),
@@ -74,6 +78,8 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 62,
               child: TextField(
                 style: const TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w400,
                   color: Colors.white,
                 ),
                 decoration: InputDecoration(
@@ -93,6 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   hintText: 'Enter your Password',
                   hintStyle: const TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),
                 ),
@@ -115,6 +123,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: const Text(
                   'Log In',
                   style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w600,
                     color: Color(0xff022169),
                     fontSize: 20,
                   ),
@@ -133,12 +143,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
     // 유효성 검사 (서버에서 요구하는 조건에 맞게 확인)
     if (userId.length < 4 || userId.length > 20) {
-      showSnackBar(context, const Text('아이디는 4자 이상 20자 이하이어야 합니다.'));
+      showSnackBar(context, const Text('Username must be 4-20 characters.'));
       return;
     }
 
     if (password.length < 4 || password.length > 20) {
-      showSnackBar(context, const Text('비밀번호는 4자 이상 20자 이하이어야 합니다.'));
+      showSnackBar(context, const Text('Password must be 4-20 characters.'));
       return;
     }
 
@@ -191,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     } catch (e) {
       // Print the exception to the terminal
-      print('Exception: $e');
+      log('Exception: $e');
     }
   }
 }
