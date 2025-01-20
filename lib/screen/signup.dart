@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:journimal_client/screen/home_eco_buddies.dart';
 import 'package:journimal_client/screen/login.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -98,6 +97,7 @@ class SignupScreen extends StatelessWidget {
                 'Welcome to',
                 style: TextStyle(
                   fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w400,
                   fontSize: 25,
                   color: Colors.white,
                 ),
@@ -128,7 +128,12 @@ class SignupScreen extends StatelessWidget {
                       backgroundColor: Color(0xffffffff)),
                   child: Text(
                     'Sign up',
-                    style: TextStyle(color: Color(0xff022169), fontSize: 20),
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xff022169),
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
@@ -142,6 +147,8 @@ class SignupScreen extends StatelessWidget {
                     'Already have an account?',
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w400,
                       fontSize: 10,
                       color: Colors.white,
                     ),
@@ -172,6 +179,8 @@ class SignupScreen extends StatelessWidget {
                     child: Text(
                       'Log in',
                       style: TextStyle(
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w400,
                         color: Color(0xff022169),
                         fontSize: 10,
                       ),
