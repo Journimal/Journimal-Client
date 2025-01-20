@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:journimal_client/screen/home_eco_buddies.dart';
 import 'package:journimal_client/screen/login.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -95,13 +96,22 @@ class SignupScreen extends StatelessWidget {
               SizedBox(height: 100),
               Text(
                 'Welcome to',
-                style: TextStyle(fontSize: 25, color: Colors.white),
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 25,
+                  color: Colors.white,
+                ),
               ),
-              Text(
-                'LOGO',
-                style: TextStyle(fontSize: 60, color: Colors.white),
+              SizedBox(
+                height: 23,
               ),
-              SizedBox(height: 20),
+              Image.asset(
+                'assets/images/journimal_logo.png',
+                width: 283.28,
+                height: 35.23,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(height: 52),
               buildTextField(nameController, 'Enter your Name'),
               SizedBox(height: 16),
               buildTextField(idController, 'Enter your ID'),
@@ -123,7 +133,7 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 24,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -143,14 +153,21 @@ class SignupScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => HomeEcoBuddiesScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.only(
+                        top: 4,
+                        bottom: 4,
+                        right: 10,
+                        left: 10,
+                      ),
                       backgroundColor: Color(0xffffffff),
-                      minimumSize: const Size(48, 20),
+                      minimumSize: Size.zero,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     child: Text(
