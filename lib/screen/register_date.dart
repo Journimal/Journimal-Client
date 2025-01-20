@@ -57,8 +57,9 @@ class _RegisterDateState extends State<RegisterDateScreen> {
             const Text(
               'Select your Travel Date',
               style: TextStyle(
-                fontSize: 28,
+                fontFamily: 'Pretendard',
                 fontWeight: FontWeight.w600,
+                fontSize: 28,
                 color: Color(0xff022169),
               ),
             ),
@@ -85,9 +86,10 @@ class _RegisterDateState extends State<RegisterDateScreen> {
                 titleCentered: true,
                 formatButtonVisible: false,
                 titleTextStyle: const TextStyle(
-                  fontSize: 16,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
                   color: Color(0xff022169),
-                  fontWeight: FontWeight.bold,
                 ),
                 leftChevronIcon: const Icon(
                   Icons.chevron_left,
@@ -118,6 +120,8 @@ class _RegisterDateState extends State<RegisterDateScreen> {
                     Text(
                       'Continue',
                       style: TextStyle(
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w400,
                         color: Colors.white,
                         fontSize: 16,
                       ),
