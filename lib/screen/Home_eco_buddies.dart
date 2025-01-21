@@ -126,9 +126,7 @@ class _HomeEcoBuddiesScreenState extends State<HomeEcoBuddiesScreen> {
               height: 20,
             ),
             Image.asset(
-              'assets/images/animal_name/vu_koala.png',
-              errorBuilder: (context, error, stackTrace) =>
-                  const Text('Image not found'),
+              'assets/images/animal_content/content_vu_koala.png',
             ),
             const SizedBox(
               height: 40,

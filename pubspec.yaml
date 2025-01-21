@@ -63,6 +63,10 @@ flutter:
 
   assets:
   - assets/images/
+  - assets/images/animal_content/
+  - assets/images/animal_tear/
+  - assets/images/mission_photo/
+  - assets/images/mission_thumbnail/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
