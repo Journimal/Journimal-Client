@@ -1,8 +1,63 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
-import '';
+import 'package:http/http.dart' as http;
+// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class HomeEcoBuddiesScreen extends StatelessWidget {
+Future<String> fetchUserName(String token) async {
+  try {
+    final response = await http.get(
+      Uri.parse('http://10.0.2.2:3000/user/name'),
+      headers: {
+        'Authorization': 'Bearer $token', // 토큰 추가
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body);
+      if (jsonResponse['status'] == 200) {
+        return jsonResponse['data'];
+      } else {
+        throw Exception('Failed to load username: ${jsonResponse['message']}');
+      }
+    } else {
+      throw Exception('HTTP error: ${response.statusCode}');
+    }
+  } catch (e) {
+    log('Error fetching username: $e');
+    throw Exception('Failed to load username');
+  }
+}
+
+class HomeEcoBuddiesScreen extends StatefulWidget {
   const HomeEcoBuddiesScreen({super.key});
+
+  @override
+  _HomeEcoBuddiesScreenState createState() => _HomeEcoBuddiesScreenState();
+}
+
+class _HomeEcoBuddiesScreenState extends State<HomeEcoBuddiesScreen> {
+  String? _username;
+
+  @override
+  void initState() {
+    super.initState();
+
+    const userToken =
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamVubmlmZXIwNTA4IiwiaWF0IjoxNzM3MzMwMzM4LCJleHAiOjE3MzczMzM5Mzh9.wpOyLVMxwkAvZ9pxPRRCGz0Gvs4LgDpY4UekUhFInZA'; // 실제 사용자 토큰으로 대체
+    fetchUserName(userToken).then((name) {
+      log('Fetched username: $name');
+      setState(() {
+        _username = name;
+      });
+    }).catchError((e) {
+      log('Error in fetchUserName: $e');
+      setState(() {
+        _username = 'Error';
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,55 +67,71 @@ class HomeEcoBuddiesScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(58),
         child: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text(
-            'LOGO',
-            style: TextStyle(color: Colors.black),
-          ),
           centerTitle: true,
           elevation: 2.0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xff022169),
+          flexibleSpace: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 20),
+                child: Image.asset(
+                  "assets/images/journimal_logo.png",
+                  width: 180,
+                  height: 22,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Header Text
             Container(
               margin: const EdgeInsets.all(30.0),
               alignment: Alignment.centerLeft,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Day 1',
                     style: TextStyle(
                       color: Color(0xff424242),
+                      fontFamily: 'Pretendard',
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
                     ),
                   ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Hi, Username',
-                    style: TextStyle(
-                      color: Color(0xff424242),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
+                  const SizedBox(
+                    height: 4,
                   ),
+                  _username == null
+                      ? const Center(child: CircularProgressIndicator())
+                      : Text(
+                          'Hi, $_username',
+                          style: const TextStyle(
+                            color: Color(0xff424242),
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
+                        ),
                 ],
               ),
             ),
-            // Koala Image and Name
-            Column(
-              children: [
-                Image.asset(
-                  'assets/images/ani_koala.png',
-                ),
-              ],
+            SizedBox(
+              height: 20,
+            ),
+            Image.asset(
+              'assets/images/ani_koala.png',
+              errorBuilder: (context, error, stackTrace) =>
+                  const Text('Image not found'),
             ),
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             // Progress Bar
             Container(
@@ -72,7 +143,9 @@ class HomeEcoBuddiesScreen extends StatelessWidget {
                     'LV.0',
                     style: TextStyle(
                       color: Color(0xff424242),
-                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
                     ),
                   ),
                   Expanded(
@@ -96,18 +169,20 @@ class HomeEcoBuddiesScreen extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    '0 / 1',
+                    '0 / 2',
                     style: TextStyle(
                       color: Color(0xff424242),
+                      fontFamily: 'Pretendard',
                       fontWeight: FontWeight.w600,
+                      fontSize: 12,
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 24),
-            // Mission Box
-            // Mission Box Design
+            SizedBox(
+              height: 24,
+            ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               padding: const EdgeInsets.all(16),
@@ -206,16 +281,20 @@ class HomeEcoBuddiesScreen extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'My Map',
+            icon: Icon(Icons.track_changes_outlined),
+            label: 'Mission',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.book),
+            label: 'My trip',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
             label: 'Info',
           ),
         ],
-        selectedItemColor: const Color(0xffFFD966),
-        unselectedItemColor: Colors.black,
+        selectedItemColor: const Color(0xff022169),
+        unselectedItemColor: const Color(0xffD9D9D9),
         backgroundColor: Colors.white,
       ),
     );
