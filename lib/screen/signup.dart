@@ -203,7 +203,11 @@ class SignupScreen extends StatelessWidget {
       height: 62,
       child: TextField(
         controller: controller,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(
+          fontFamily: 'Pretendard',
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -214,7 +218,11 @@ class SignupScreen extends StatelessWidget {
             borderSide: BorderSide(color: Colors.white, width: 1.0),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.white),
+          hintStyle: TextStyle(
+            fontFamily: 'Pretendard',
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
         ),
         keyboardType: keyboardType,
         obscureText: obscureText,
