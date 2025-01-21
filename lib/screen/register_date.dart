@@ -36,7 +36,7 @@ class _RegisterDateState extends State<RegisterDateScreen> {
   void _navigateToNextScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const RegisterPlaceScreen()),
+      MaterialPageRoute(builder: (context) => RegisterPlaceScreen()),
     );
   }
 
