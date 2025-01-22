@@ -44,8 +44,7 @@ class _HomeEcoBuddiesScreenState extends State<HomeEcoBuddiesScreen> {
   void initState() {
     super.initState();
 
-    const userToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamVubmlmZXIwNTA4IiwiaWF0IjoxNzM3MzMwMzM4LCJleHAiOjE3MzczMzM5Mzh9.wpOyLVMxwkAvZ9pxPRRCGz0Gvs4LgDpY4UekUhFInZA'; // 실제 사용자 토큰으로 대체
+    const userToken = ''; // 실제 사용자 토큰으로 대체
     fetchUserName(userToken).then((name) {
       log('Fetched username: $name');
       setState(() {
