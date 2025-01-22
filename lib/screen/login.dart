@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'dart:convert';
 import 'dart:developer';
 import 'package:journimal_client/screen/register_date.dart';
+import '../services/token_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,9 +16,10 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController id = TextEditingController();
   final TextEditingController pw = TextEditingController();
+  final TokenService tokenservice = TokenService();
 
   // Secure storage instance
-  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
+  final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
         final responseData = jsonDecode(response.body);
 
         // token을 storage에 저장
-        await _secureStorage.write(key: 'jwt', value: responseData['token']);
+        await tokenservice.saveToken(responseData);
 
         // Navigate to the next screen
         Navigator.push(

@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../services/token_service.dart';
 
-Future<String> fetchUserName(String token) async {
+Future<String> fetchUserName(TokenService tokenService) async {
   try {
+    String? token = await tokenService.getToken('authToken');
+
     final response = await http.get(
       Uri.parse('http://10.0.2.2:3000/user/name'),
       headers: {
@@ -38,24 +40,30 @@ class HomeEcoBuddiesScreen extends StatefulWidget {
 }
 
 class _HomeEcoBuddiesScreenState extends State<HomeEcoBuddiesScreen> {
+  final TokenService tokenService = TokenService();
   String? _username;
 
   @override
   void initState() {
     super.initState();
+    _loadUsername();
+  }
 
-    const userToken = ''; // 실제 사용자 토큰으로 대체
-    fetchUserName(userToken).then((name) {
-      log('Fetched username: $name');
+  Future<void> _loadUsername() async {
+    try {
+      String? token =
+          await tokenService.getToken('authToken'); // 실제 사용자 토큰으로 대체
+      String name = await fetchUserName(tokenService);
+
       setState(() {
         _username = name;
       });
-    }).catchError((e) {
-      log('Error in fetchUserName: $e');
+    } catch (e) {
+      log('Error in _loadUsername: $e');
       setState(() {
         _username = 'Error';
       });
-    });
+    }
   }
 
   @override
