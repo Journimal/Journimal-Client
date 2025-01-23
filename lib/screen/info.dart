@@ -9,30 +9,6 @@ class InfoScreen extends StatelessWidget {
       length: 2, // 두 개의 탭: Mission, Eco-Buddies
       child: Scaffold(
         backgroundColor: const Color(0xffF5F5F5),
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(58),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            centerTitle: true,
-            elevation: 2.0,
-            backgroundColor: const Color(0xff022169),
-            flexibleSpace: Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(left: 20),
-                  child: Image.asset(
-                    "assets/images/journimal_logo.png",
-                    width: 180,
-                    height: 22,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
         body: Column(
           children: [
             // 프로필 부분
@@ -250,29 +226,6 @@ class InfoScreen extends StatelessWidget {
               ),
             ),
           ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.track_changes_outlined),
-              label: 'Mission',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.book),
-              label: 'My trip',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Info',
-            ),
-          ],
-          selectedItemColor: const Color(0xff022169),
-          unselectedItemColor: const Color(0xffD9D9D9),
-          backgroundColor: Colors.white,
         ),
       ),
     );
