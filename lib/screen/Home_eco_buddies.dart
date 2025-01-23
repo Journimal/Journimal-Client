@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:journimal_client/screen/mission_select.dart';
 // import '../services/token_service.dart';
 import 'package:journimal_client/services/token_service.dart';
 
@@ -203,7 +204,13 @@ class _HomeEcoBuddiesScreenState extends State<HomeEcoBuddiesScreen> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MissionSelectScreen()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black,

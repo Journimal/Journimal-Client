@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:journimal_client/screen/mission_select.dart';
 
 class FailSurveyScreen extends StatelessWidget {
   const FailSurveyScreen({super.key});
@@ -57,6 +58,11 @@ class OhNoScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // 버튼 클릭 시 동작 추가
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MissionSelectScreen()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff022169),
