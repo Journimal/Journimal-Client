@@ -175,8 +175,11 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response.statusCode == 201) {
         final responseData = jsonDecode(response.body);
 
-        // token을 storage에 저장
-        await tokenservice.saveToken(responseData);
+        // Extract the token from the response
+        final String accessToken = responseData['accessToken'];
+
+        // Save only the token to storage
+        await tokenservice.saveToken(accessToken);
 
         // Navigate to the next screen
         Navigator.push(
@@ -186,18 +189,12 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         );
       } else {
-        final errorResponse = jsonDecode(response.body);
+        final Map<String, dynamic> errorResponse = jsonDecode(response.body);
         final errorMessage = errorResponse['message'];
 
-        if (errorMessage is List) {
-          // 에러 메시지가 배열인 경우
-          final formattedError = errorMessage.join('\n'); // 배열을 문자열로 변환
-          showSnackBar(context, Text(formattedError));
-        } else if (errorMessage is String) {
-          // 에러 메시지가 문자열인 경우
+        if (errorMessage is String) {
           showSnackBar(context, Text(errorMessage));
         } else {
-          // 예상치 못한 에러 포맷
           showSnackBar(context, const Text('알 수 없는 오류가 발생했습니다.'));
         }
       }
