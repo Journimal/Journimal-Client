@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import '../services/token_service.dart';
+// import '../services/token_service.dart';
+import 'package:journimal_client/services/token_service.dart';
 
 Future<String> fetchUserName(TokenService tokenService) async {
   try {

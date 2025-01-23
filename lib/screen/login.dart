@@ -4,7 +4,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'dart:convert';
 import 'dart:developer';
 import 'package:journimal_client/screen/register_date.dart';
-import '../services/token_service.dart';
+// import '../services/token_service.dart';
+import 'package:journimal_client/services/token_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
