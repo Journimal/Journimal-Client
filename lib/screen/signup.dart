@@ -83,16 +83,15 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff022169),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
-        child: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xff022169),
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 100),
+              SizedBox(height: 50),
               Text(
                 'Welcome to',
                 style: TextStyle(
