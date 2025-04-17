@@ -26,9 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff022169),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(0),
-        child: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xff022169),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: Center(
         child: Column(
